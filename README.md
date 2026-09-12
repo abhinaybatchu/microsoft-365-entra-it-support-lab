@@ -52,66 +52,66 @@ The project combines an existing on-premises Active Directory environment with a
  ON-PREMISES ENVIRONMENT                          MICROSOFT CLOUD
  abhinaylabs.internal                             abhinaylabs.onmicrosoft.com
 
- â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”                    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
- â”‚        DC01 / DC02        â”‚                    â”‚     Microsoft Entra ID       â”‚
- â”‚                           â”‚                    â”‚                              â”‚
- â”‚ Active Directory DS       â”‚                    â”‚ Users                        â”‚
- â”‚ DNS                       â”‚                    â”‚ Cloud Security Groups        â”‚
- â”‚ Users / OUs / Groups      â”‚                    â”‚ Administrative Roles         â”‚
- â”‚ Domain Authentication     â”‚                    â”‚ Authentication / MFA         â”‚
- â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜                    â”‚ Conditional Access           â”‚
-               â”‚                                  â”‚ Sign-In Logs                 â”‚
-               â”‚                                  â”‚ Audit Logs                   â”‚
-               â”‚                                  â”‚ Device Identities            â”‚
-               â”‚                                  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-               â”‚                                                 â”‚
-               â”‚                                                 â”‚
-     â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â–¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”                         â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â–¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-     â”‚  Entra-Sync-Pilot  â”‚                         â”‚ Microsoft 365 Services   â”‚
-     â”‚                    â”‚                         â”‚                          â”‚
-     â”‚ David Miller       â”‚                         â”‚ Exchange Online          â”‚
-     â”‚ Elena Rivera       â”‚                         â”‚ Microsoft Teams          â”‚
-     â”‚ Joseph Daniel      â”‚                         â”‚ SharePoint Online        â”‚
-     â”‚ Pauline Hudson     â”‚                         â”‚ OneDrive                 â”‚
-     â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜                         â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-               â”‚
-               â”‚ Controlled user synchronization
-               â–¼
-     â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-     â”‚       SYNC01       â”‚
-     â”‚                    â”‚
-     â”‚ Microsoft Entra    â”‚
-     â”‚ Connect Sync       â”‚
-     â”‚                    â”‚
-     â”‚ Password Hash      â”‚
-     â”‚ Synchronization    â”‚
-     â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-               â”‚
-               â”‚ Existing-user matching
-               â”‚ + synchronized attributes
-               â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â–º
+ ┌───────────────────────────┐                    ┌──────────────────────────────┐
+ │        DC01 / DC02        │                    │     Microsoft Entra ID       │
+ │                           │                    │                              │
+ │ Active Directory DS       │                    │ Users                        │
+ │ DNS                       │                    │ Cloud Security Groups        │
+ │ Users / OUs / Groups      │                    │ Administrative Roles         │
+ │ Domain Authentication     │                    │ Authentication / MFA         │
+ └─────────────┬─────────────┘                    │ Conditional Access           │
+               │                                  │ Sign-In Logs                 │
+               │                                  │ Audit Logs                   │
+               │                                  │ Device Identities            │
+               │                                  └──────────────┬───────────────┘
+               │                                                 │
+               │                                                 │
+     ┌─────────▼──────────┐                         ┌────────────▼─────────────┐
+     │  Entra-Sync-Pilot  │                         │ Microsoft 365 Services   │
+     │                    │                         │                          │
+     │ David Miller       │                         │ Exchange Online          │
+     │ Elena Rivera       │                         │ Microsoft Teams          │
+     │ Joseph Daniel      │                         │ SharePoint Online        │
+     │ Pauline Hudson     │                         │ OneDrive                 │
+     └─────────┬──────────┘                         └──────────────────────────┘
+               │
+               │ Controlled user synchronization
+               ▼
+     ┌────────────────────┐
+     │       SYNC01       │
+     │                    │
+     │ Microsoft Entra    │
+     │ Connect Sync       │
+     │                    │
+     │ Password Hash      │
+     │ Synchronization    │
+     └─────────┬──────────┘
+               │
+               │ Existing-user matching
+               │ + synchronized attributes
+               └──────────────────────────────────────────────►
                                          Microsoft Entra ID
 
 
  ON-PREMISES ENDPOINT                              CLOUD-FIRST ENDPOINT
 
- â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”                    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
- â”‚         CLIENT01          â”‚                    â”‚       CLOUDCLIENT01       â”‚
- â”‚                           â”‚                    â”‚                           â”‚
- â”‚ Windows 11                â”‚                    â”‚ Windows 11 Enterprise     â”‚
- â”‚ AD domain joined          â”‚                    â”‚ Microsoft Entra joined    â”‚
- â”‚ abhinaylabs.internal      â”‚                    â”‚ DomainJoined : NO         â”‚
- â”‚                           â”‚                    â”‚ AzureAdJoined : YES       â”‚
- â”‚ Not hybrid Entra joined   â”‚                    â”‚ MDM / Intune : None      â”‚
- â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜                    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+ ┌───────────────────────────┐                    ┌───────────────────────────┐
+ │         CLIENT01          │                    │       CLOUDCLIENT01       │
+ │                           │                    │                           │
+ │ Windows 11                │                    │ Windows 11 Enterprise     │
+ │ AD domain joined          │                    │ Microsoft Entra joined    │
+ │ abhinaylabs.internal      │                    │ DomainJoined : NO         │
+ │                           │                    │ AzureAdJoined : YES       │
+ │ Not hybrid Entra joined   │                    │ MDM / Intune : None      │
+ └───────────────────────────┘                    └───────────────────────────┘
 
 
  ADMINISTRATION / SUPPORT
 
- â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
- â”‚ Microsoft 365 Admin Center | Entra Admin Center | Exchange Admin Center â”‚
- â”‚ Teams Admin Center | SharePoint | Microsoft Graph PowerShell            â”‚
- â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+ ┌──────────────────────────────────────────────────────────────────────────┐
+ │ Microsoft 365 Admin Center | Entra Admin Center | Exchange Admin Center │
+ │ Teams Admin Center | SharePoint | Microsoft Graph PowerShell            │
+ └──────────────────────────────────────────────────────────────────────────┘
 ````
 **Hybrid Synchronization Scope**
 
@@ -204,13 +204,13 @@ This included verifying:
 
 ```text
 Identity
-   â†“
+   ↓
 License
-   â†“
+   ↓
 Service Plan
-   â†“
+   ↓
 Service Provisioning
-   â†“
+   ↓
 End-User Access
 ```
 
@@ -329,15 +329,15 @@ This demonstrated a safer administrative workflow:
 
 ```text
 Design
-  â†“
+  ↓
 Configure
-  â†“
+  ↓
 Report-only
-  â†“
+  ↓
 Evaluate
-  â†“
+  ↓
 Validate
-  â†“
+  ↓
 Enforce only when approved
 ```
 
@@ -434,15 +434,15 @@ Hybrid identity introduced an important administrative distinction:
 
 ```text
 Cloud-only identity
-        â†“
+        ↓
 Cloud-managed attributes
 
 Synchronized identity
-        â†“
+        ↓
 Certain attributes mastered on-premises
-        â†“
+        ↓
 Microsoft Entra Connect
-        â†“
+        ↓
 Microsoft Entra ID
 ```
 
@@ -475,17 +475,17 @@ The general support methodology used throughout the project was:
 
 ```text
 Verify
-  â†“
+  ↓
 Investigate
-  â†“
+  ↓
 Identify Cause
-  â†“
+  ↓
 Remediate
-  â†“
+  ↓
 Validate
-  â†“
+  ↓
 Document
-  â†“
+  ↓
 Close or Escalate
 ```
 
@@ -499,40 +499,40 @@ The final phase applied the technical work to common enterprise support workflow
 
 ```text
 Request
-â†’ Authorization
-â†’ Identity
-â†’ Attributes
-â†’ Groups
-â†’ Licensing
-â†’ Services
-â†’ Security
-â†’ Validation
-â†’ Documentation
+→ Authorization
+→ Identity
+→ Attributes
+→ Groups
+→ Licensing
+→ Services
+→ Security
+→ Validation
+→ Documentation
 ```
 
 ### Mover
 
 ```text
 Approved role change
-â†’ Review existing access
-â†’ Update authoritative attributes
-â†’ Grant required new access
-â†’ Remove obsolete access
-â†’ Validate
-â†’ Document
+→ Review existing access
+→ Update authoritative attributes
+→ Grant required new access
+→ Remove obsolete access
+→ Validate
+→ Document
 ```
 
 ### Leaver
 
 ```text
 Authorized termination
-â†’ Disable/block access
-â†’ Revoke sessions
-â†’ Remove privileged access
-â†’ Preserve business data
-â†’ Reclaim licenses
-â†’ Validate
-â†’ Document
+→ Disable/block access
+→ Revoke sessions
+→ Remove privileged access
+→ Preserve business data
+→ Reclaim licenses
+→ Validate
+→ Document
 ```
 
 The lab emphasized disabling and preserving data according to policy rather than immediately deleting identities.
@@ -562,25 +562,25 @@ Detailed implementation and troubleshooting documentation is available in [`01-d
 
 ```text
 microsoft-365-entra-it-support-lab/
-â”‚
-â”œâ”€â”€ 01-docs/
-â”‚   â”œâ”€â”€ 01-microsoft-365-lab-environment.md
-â”‚   â”œâ”€â”€ 02-entra-id-fundamentals.md
-â”‚   â”œâ”€â”€ 03-cloud-user-administration.md
-â”‚   â”œâ”€â”€ 04-groups-access-management.md
-â”‚   â”œâ”€â”€ 05-licensing-service-provisioning.md
-â”‚   â”œâ”€â”€ 06-user-support-troubleshooting-least-privilege.md
-â”‚   â”œâ”€â”€ 07-teams-sharepoint-onedrive-administration.md
-â”‚   â”œâ”€â”€ 08-conditional-access-device-identity.md
-â”‚   â”œâ”€â”€ 09-monitoring-powershell-hybrid-identity.md
-â”‚   â””â”€â”€ 10-enterprise-helpdesk-capstone-final-validation.md
-â”‚
-â”œâ”€â”€ 02-screenshots/
-â”œâ”€â”€ 03-reports/
-â”‚   â””â”€â”€ microsoft-365-entra-it-support-lab-report.md
-â”‚
-â”œâ”€â”€ .gitignore
-â””â”€â”€ README.md
+│
+├── 01-docs/
+│   ├── 01-microsoft-365-lab-environment.md
+│   ├── 02-entra-id-fundamentals.md
+│   ├── 03-cloud-user-administration.md
+│   ├── 04-groups-access-management.md
+│   ├── 05-licensing-service-provisioning.md
+│   ├── 06-user-support-troubleshooting-least-privilege.md
+│   ├── 07-teams-sharepoint-onedrive-administration.md
+│   ├── 08-conditional-access-device-identity.md
+│   ├── 09-monitoring-powershell-hybrid-identity.md
+│   └── 10-enterprise-helpdesk-capstone-final-validation.md
+│
+├── 02-screenshots/
+├── 03-reports/
+│   └── microsoft-365-entra-it-support-lab-report.md
+│
+├── .gitignore
+└── README.md
 ```
 
 ---
@@ -589,7 +589,7 @@ microsoft-365-entra-it-support-lab/
 
 This project demonstrates practical experience with:
 
-**Microsoft 365 Administration Â· Microsoft Entra ID Â· Identity & Access Management Â· User Administration Â· Group Management Â· Microsoft 365 Licensing Â· Exchange Online Â· Microsoft Teams Â· SharePoint Online Â· OneDrive Â· Authentication Â· MFA Â· RBAC Â· Least Privilege Â· Conditional Access Â· Sign-In Logs Â· Audit Logs Â· Microsoft Graph PowerShell Â· Microsoft Entra Device Identity Â· Microsoft Entra Connect Sync Â· Password Hash Synchronization Â· Hybrid Identity Â· Source of Authority Â· Troubleshooting Â· Joiner-Mover-Leaver Â· Help Desk Documentation**
+**Microsoft 365 Administration · Microsoft Entra ID · Identity & Access Management · User Administration · Group Management · Microsoft 365 Licensing · Exchange Online · Microsoft Teams · SharePoint Online · OneDrive · Authentication · MFA · RBAC · Least Privilege · Conditional Access · Sign-In Logs · Audit Logs · Microsoft Graph PowerShell · Microsoft Entra Device Identity · Microsoft Entra Connect Sync · Password Hash Synchronization · Hybrid Identity · Source of Authority · Troubleshooting · Joiner-Mover-Leaver · Help Desk Documentation**
 
 ---
 
@@ -635,15 +635,15 @@ It provided hands-on experience troubleshooting user access across multiple laye
 
 ```text
 Identity
-â†’ Authentication
-â†’ Authorization
-â†’ Licensing
-â†’ Service Provisioning
-â†’ Policy
-â†’ Device Identity
-â†’ Application
-â†’ Logs
-â†’ Hybrid Synchronization
+→ Authentication
+→ Authorization
+→ Licensing
+→ Service Provisioning
+→ Policy
+→ Device Identity
+→ Application
+→ Logs
+→ Hybrid Synchronization
 ```
 
 Together with the Active Directory IT Support Lab, this project demonstrates experience across both traditional on-premises Microsoft identity infrastructure and modern Microsoft 365 / Microsoft Entra cloud administration.
